@@ -10,7 +10,7 @@ const WhySection = () => {
             <div className="icon-metallic mr-6">
               <Settings size={48} />
             </div>
-            <h2 className="section-title text-3xl lg:text-4xl font-bold text-white">
+            <h2 className="section-title text-4xl lg:text-5xl font-bold text-white">
               ¿Por qué RPM Tools?
             </h2>
           </div>

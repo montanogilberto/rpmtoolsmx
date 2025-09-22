@@ -4,7 +4,7 @@ const MissionVisionValues = () => {
   return (
     <section id="nosotros" className="py-20 bg-technical-black text-steel-gray-light">
       <div className="container mx-auto px-4 max-w-4xl">
-        <h2 className="section-title text-4xl font-bold mb-8 text-white">Nosotros</h2>
+        <h2 className="section-title text-4xl lg:text-5xl font-bold mb-6 text-white">Nosotros</h2>
 
         <div className="mb-12">
           <h3 className="text-2xl font-semibold mb-4 text-precision-red">POR QUÉ (Propósito)</h3>

@@ -13,10 +13,12 @@ function App() {
   return (
     <div className="min-h-screen bg-technical-black">
       {/* Header Section */}
-      <Header />
+      <div>
+        <Header />
+      </div>
 
       {/* Main Content Sections */}
-      <main className="relative w-full main-content">
+      <div className="relative w-full">
         <Hero />
         <WhySection />
         <HowSection />
@@ -24,7 +26,7 @@ function App() {
         <MissionVisionValues />
         <ContactForm />
         <Footer />
-      </main>
+      </div>
     </div>
   );
 }

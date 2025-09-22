@@ -72,7 +72,7 @@ body {
 /* 3D Logo */
 .logo-3d {
   line-height: 1;
-  text-shadow: 
+  text-shadow:
     2px 2px 0px rgba(193, 39, 45, 0.3),
     4px 4px 0px rgba(42, 58, 99, 0.2),
     6px 6px 10px rgba(0, 0, 0, 0.5);
@@ -81,17 +81,57 @@ body {
 
 .logo-3d:hover {
   transform: translateY(-2px);
-  text-shadow: 
+  text-shadow:
     3px 3px 0px rgba(193, 39, 45, 0.4),
     6px 6px 0px rgba(42, 58, 99, 0.3),
     9px 9px 15px rgba(0, 0, 0, 0.6);
 }
 
+/* Image Logo */
+.logo-image {
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  border: 1px solid rgba(167, 169, 172, 0.1);
+}
+
+.logo-image:hover {
+  filter: drop-shadow(4px 4px 8px rgba(193, 39, 45, 0.3));
+  transform: scale(1.05);
+  border-color: rgba(193, 39, 45, 0.3);
+}
+
+.logo-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.logo-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg,
+    transparent,
+    rgba(193, 39, 45, 0.1),
+    transparent
+  );
+  transition: left 0.6s ease;
+}
+
+.logo-container:hover::before {
+  left: 100%;
+}
+
 /* Navigation */
 .nav-link {
-  color: var(--steel-gray-light);
+  color: #E5E5E5; /* More white/light gray for better visibility */
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
+  font-size: 1.1rem;
   position: relative;
   transition: all 0.3s ease;
 }
@@ -109,6 +149,8 @@ body {
 
 .nav-link:hover {
   color: var(--precision-red);
+  transform: translateY(-2px);
+  text-shadow: 0 0 8px rgba(193, 39, 45, 0.4);
 }
 
 .nav-link:hover::after {
@@ -367,4 +409,226 @@ body {
   );
   background-size: 200% 100%;
   animation: metallic-shine 2s infinite;
+}
+
+/* Header Improvements */
+.header-container {
+  height: 128px; /* Default header height */
+  padding: 0 3rem; /* Default horizontal padding */
+  max-width: 1400px; /* Wider container */
+  margin: 0 auto;
+}
+
+.logo-image {
+  height: 80px; /* Desktop logo - default size */
+  max-height: 96px;
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.2));
+  transition: height 0.3s ease;
+}
+
+/* Responsive logo sizes */
+@media (max-width: 1024px) {
+  .logo-image {
+    height: 60px; /* Tablet logo */
+  }
+}
+
+@media (max-width: 768px) {
+  .logo-image {
+    height: 48px; /* Mobile logo */
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-image {
+    height: 40px; /* Small mobile logo */
+  }
+}
+
+.nav-link {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding: 16px 24px;
+}
+
+.nav-link:hover {
+  color: var(--precision-red);
+  text-shadow: 0 0 6px rgba(193, 39, 45, 0.3);
+}
+
+/* Logo size variants */
+.logo-large { height: 80px; } /* Desktop */
+.logo-medium { height: 60px; } /* Tablet */
+.logo-small { height: 48px; } /* Mobile */
+.logo-xs { height: 40px; } /* Small mobile */
+
+/* Logo width variants */
+.logo-width-auto { width: auto; }
+.logo-width-sm { width: 140px; }
+.logo-width-md { width: 180px; }
+.logo-width-lg { width: 220px; }
+.logo-width-xl { width: 280px; }
+
+/* Contact Form Styles */
+.contact-form-container {
+  background: linear-gradient(135deg,
+    rgba(75, 75, 77, 0.15),
+    rgba(42, 58, 99, 0.1)
+  );
+  border: 1px solid rgba(167, 169, 172, 0.2);
+  backdrop-filter: blur(10px);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.contact-form-input {
+  background: rgba(75, 75, 77, 0.2);
+  border: 2px solid rgba(167, 169, 172, 0.3);
+  color: var(--steel-gray-light);
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+  border-radius: 8px;
+}
+
+.contact-form-input:focus {
+  outline: none;
+  border-color: var(--metallic-indigo);
+  box-shadow:
+    0 0 0 3px rgba(42, 58, 99, 0.2),
+    inset 0 1px 3px rgba(0, 0, 0, 0.2);
+  background: rgba(75, 75, 77, 0.3);
+}
+
+.contact-form-input::placeholder {
+  color: rgba(167, 169, 172, 0.6);
+}
+
+.contact-form-textarea {
+  background: rgba(75, 75, 77, 0.2);
+  border: 2px solid rgba(167, 169, 172, 0.3);
+  color: var(--steel-gray-light);
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  resize: vertical;
+  min-height: 120px;
+}
+
+.contact-form-textarea:focus {
+  outline: none;
+  border-color: var(--metallic-indigo);
+  box-shadow:
+    0 0 0 3px rgba(42, 58, 99, 0.2),
+    inset 0 1px 3px rgba(0, 0, 0, 0.2);
+  background: rgba(75, 75, 77, 0.3);
+}
+
+.contact-form-textarea::placeholder {
+  color: rgba(167, 169, 172, 0.6);
+}
+
+/* Footer Styles */
+.footer-section {
+  background: var(--technical-black);
+  border-top: 1px solid rgba(167, 169, 172, 0.2);
+}
+
+.footer-link {
+  color: rgba(167, 169, 172, 0.8);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.footer-link:hover {
+  color: var(--precision-red);
+  transform: translateY(-1px);
+}
+
+/* Contact Form Submit Button */
+.contact-submit-btn {
+  background: linear-gradient(135deg, var(--metallic-indigo), #3B4A7A);
+  color: white;
+  border: none;
+  cursor: pointer;
+  box-shadow:
+    0 4px 15px rgba(42, 58, 99, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-submit-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.contact-submit-btn:hover::before {
+  left: 100%;
+}
+
+.contact-submit-btn:hover {
+  background: linear-gradient(135deg, var(--precision-red), #E63946);
+  transform: translateY(-2px);
+  box-shadow:
+    0 6px 20px rgba(193, 39, 45, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* Social Icons in Footer */
+.social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: rgba(42, 58, 99, 0.2);
+  border: 1px solid rgba(167, 169, 172, 0.3);
+  border-radius: 50%;
+  color: var(--steel-gray-light);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+}
+
+.social-icon:hover {
+  background: var(--metallic-indigo);
+  border-color: var(--metallic-indigo);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(42, 58, 99, 0.4);
+}
+
+.social-icon svg {
+  transition: transform 0.3s ease;
+}
+
+.social-icon:hover svg {
+  transform: scale(1.1);
+}
+
+/* Optional: Logo metallic shine effect */
+.logo-image.metallic {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.15),
+    transparent
+  );
+  background-size: 200% 100%;
+  animation: metallic-shine 3s infinite;
+}
+/* Main Content Spacing - Fix for fixed header */
+.main-content {
+  padding-top: 128px; /* Account for fixed header height */
 }
