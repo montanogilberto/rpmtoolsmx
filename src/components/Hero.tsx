@@ -25,7 +25,13 @@ const Hero = () => {
             Rapidez y precisión para maquinado
           </p>
 
-          <button className="cta-button text-lg px-8 py-3 rounded font-semibold transition-all duration-300 transform hover:scale-105">
+          <button
+            onClick={() => {
+              const productosSection = document.getElementById('productos');
+              productosSection?.scrollIntoView({ behavior: 'smooth' });
+            }}
+            className="cta-button text-lg px-8 py-3 rounded font-semibold transition-all duration-300 transform hover:scale-105"
+          >
             Ver catálogo
           </button>
         </div>

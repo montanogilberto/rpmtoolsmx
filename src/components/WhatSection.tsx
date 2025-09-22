@@ -1,6 +1,17 @@
 import React from 'react';
 import { Wrench, Cog, Zap } from 'lucide-react';
 
+// Local image imports
+import pctLogo from '../assets/pct.jpeg';
+
+import morseLogo from '../assets/morse.jpeg';
+import morseCatalog from '../assets/morse_catalog.jpeg';
+import toolfloCatalog from '../assets/toolflo_catalog.jpeg';
+import mtthread from '../assets/mtthread.jpeg';
+import imco from '../assets/imco.jpeg';
+import tungaloy from '../assets/tungaloy.jpeg';
+import ntk from '../assets/ntk.jpeg';
+
 const WhatSection = () => {
   const features = [
     {
@@ -20,9 +31,22 @@ const WhatSection = () => {
     }
   ];
 
+  const brandImages = [
+    { src: pctLogo, alt: "PCT Logo" },
+    { src: morseLogo, alt: "Morse Cutting Tools" },
+    { src: morseCatalog, alt: "Morse Catalog" },
+    { src: toolfloCatalog, alt: "ToolFlo Catalog" },
+    { src: mtthread, alt: "MT Thread" },
+    { src: imco, alt: "IMCO" },
+    { src: tungaloy, alt: "Tungaloy" },
+    { src: ntk, alt: "NTK Cutting Tools" }
+  ];
+
   return (
     <section id="productos" className="py-20 bg-gradient-to-b from-technical-black to-metallic-gray-dark/20">
       <div className="container mx-auto px-4">
+
+        {/* TITLE */}
         <div className="text-center mb-16">
           <h2 className="section-title text-4xl lg:text-5xl font-bold mb-6">
             ¿Qué Ofrecemos?
@@ -32,7 +56,8 @@ const WhatSection = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        {/* FEATURES */}
+        <div className="grid md:grid-cols-3 gap-8 mb-16">
           {features.map((feature, index) => (
             <div key={index} className="metallic-card p-8 text-center hover-lift">
               <div className="flex justify-center mb-6">
@@ -47,6 +72,20 @@ const WhatSection = () => {
             </div>
           ))}
         </div>
+
+        {/* BRAND IMAGES */}
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {brandImages.map((img, index) => (
+            <div key={index} className="metallic-card p-4 hover-lift">
+              <img
+                src={img.src}
+                alt={img.alt}
+                className="w-full h-40 object-contain mx-auto"
+              />
+        </div>
+  ))}
+</div>
+
       </div>
     </section>
   );
