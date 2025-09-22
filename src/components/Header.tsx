@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ShoppingCart, User, ChevronUp } from 'lucide-react';
-import Logotipo from '../assets/Logotipo.jpeg';
+import RPMLogo from './RPMLogo';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -38,13 +38,7 @@ const Header = () => {
           <div className="flex items-center justify-between h-32">
             {/* Logo */}
             <div className="flex items-center space-x-6">
-              <div className="logo-container">
-                <img
-                  src={Logotipo}
-                  alt="RPM Tools Logo"
-                  className="logo-image metallic logo-large logo-width-lg object-contain"
-                />
-              </div>
+              <RPMLogo size="large" width="lg"  />
             </div>
 
             {/* Desktop Navigation */}

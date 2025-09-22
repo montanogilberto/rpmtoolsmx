@@ -7,6 +7,7 @@ import WhatSection from './components/WhatSection';
 import MissionVisionValues from './components/MissionVisionValues';
 import ContactForm from './components/ContactForm';
 import Footer from './components/Footer';
+import LogoDemo from './components/LogoDemo';
 import './styles/industrial.css';
 
 function App() {

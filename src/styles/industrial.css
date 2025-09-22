@@ -69,62 +69,17 @@ body {
   100% { background-position: 100% 50%; }
 }
 
-/* 3D Logo */
-.logo-3d {
-  line-height: 1;
-  text-shadow:
-    2px 2px 0px rgba(193, 39, 45, 0.3),
-    4px 4px 0px rgba(42, 58, 99, 0.2),
-    6px 6px 10px rgba(0, 0, 0, 0.5);
-  transition: all 0.3s ease;
-}
 
-.logo-3d:hover {
-  transform: translateY(-2px);
-  text-shadow:
-    3px 3px 0px rgba(193, 39, 45, 0.4),
-    6px 6px 0px rgba(42, 58, 99, 0.3),
-    9px 9px 15px rgba(0, 0, 0, 0.6);
-}
 
-/* Image Logo */
-.logo-image {
-  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
-  transition: all 0.3s ease;
-  border-radius: 8px;
-  border: 1px solid rgba(167, 169, 172, 0.1);
-}
 
-.logo-image:hover {
-  filter: drop-shadow(4px 4px 8px rgba(193, 39, 45, 0.3));
-  transform: scale(1.05);
-  border-color: rgba(193, 39, 45, 0.3);
-}
 
-.logo-container {
-  position: relative;
-  overflow: hidden;
-  border-radius: 8px;
-}
 
-.logo-container::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg,
-    transparent,
-    rgba(193, 39, 45, 0.1),
-    transparent
-  );
-  transition: left 0.6s ease;
-}
 
-.logo-container:hover::before {
-  left: 100%;
-}
+
+
+
+
+
 
 /* Navigation */
 .nav-link {
@@ -419,31 +374,6 @@ body {
   margin: 0 auto;
 }
 
-.logo-image {
-  height: 80px; /* Desktop logo - default size */
-  max-height: 96px;
-  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.2));
-  transition: height 0.3s ease;
-}
-
-/* Responsive logo sizes */
-@media (max-width: 1024px) {
-  .logo-image {
-    height: 60px; /* Tablet logo */
-  }
-}
-
-@media (max-width: 768px) {
-  .logo-image {
-    height: 48px; /* Mobile logo */
-  }
-}
-
-@media (max-width: 480px) {
-  .logo-image {
-    height: 40px; /* Small mobile logo */
-  }
-}
 
 .nav-link {
   font-family: 'Rajdhani', sans-serif;
@@ -632,3 +562,103 @@ body {
 .main-content {
   padding-top: 128px; /* Account for fixed header height */
 }
+
+/* RPM Logo Styles */
+.rpm-logo-container {
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.rpm-logo-svg {
+  transition: all 0.3s ease;
+  border-radius: 8px;
+}
+
+.rpm-logo-svg:hover {
+  transform: scale(1.02);
+}
+
+/* Text styling for better readability */
+.rpm-text {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.tools-text {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  font-weight: 600;
+  letter-spacing: 1.5px;
+}
+
+.subtitle-text {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  font-weight: 500;
+}
+
+/* Metallic effect animation */
+.metallic-effect {
+  animation: metallic-shine 3s ease-in-out infinite;
+}
+
+.shine-overlay {
+  animation: shine-sweep 4s ease-in-out infinite;
+}
+
+@keyframes shine-sweep {
+  0% { transform: translateX(-100%); }
+  50% { transform: translateX(0%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Responsive logo scaling */
+@media (max-width: 1024px) {
+  .rpm-logo-svg {
+    max-width: 180px;
+  }
+}
+
+@media (max-width: 768px) {
+  .rpm-logo-svg {
+    max-width: 140px;
+  }
+  
+  .subtitle-text {
+    font-size: 7px;
+  }
+}
+
+@media (max-width: 480px) {
+  .rpm-logo-svg {
+    max-width: 120px;
+  }
+  
+  .subtitle-text {
+    font-size: 6px;
+  }
+}
+
+/* High contrast support */
+@media (prefers-contrast: high) {
+  .rpm-text, .tools-text {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  }
+  
+  .subtitle-text {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .metallic-effect,
+  .shine-overlay,
+  .rpm-logo-svg {
+    animation: none;
+  }
+  
+  .rpm-logo-svg:hover {
+    transform: none;
+  }
+}
+
