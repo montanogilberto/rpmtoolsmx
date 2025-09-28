@@ -7,4 +7,15 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
+  server: {
+    proxy: {
+      '/api': {
+        target: 'https://smartloansbackend.azurewebsites.net',
+        changeOrigin: true,
+        secure: true, // since backend is HTTPS
+        rewrite: (path) => path.replace(/^\/api/, ''), 
+      },
+    },
+  },
 });
+

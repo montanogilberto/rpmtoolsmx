@@ -22,34 +22,38 @@ const ContactForm = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate API call or use mailto
     try {
-      // Option 1: Using mailto (immediate)
-      const subject = encodeURIComponent('Contacto desde RPM Tools MX');
-      const body = encodeURIComponent(
-        `Nombre: ${formData.name}\nEmail: ${formData.email}\n\nMensaje:\n${formData.message}`
-      );
-      window.location.href = `mailto:info@rpmtools.mx?subject=${subject}&body=${body}`;
+      const payload = {
+        contact_email: [
+          {
+            nombre: formData.name,
+            email: formData.email,
+            mensaje: formData.message,
+            sender_email: "administracion@rpmtoolsmx.com"
+          }
+        ]
+      };
 
-      // Option 2: API call (uncomment if you have a backend)
-      /*
-      const response = await fetch('/api/send_email', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
+      const response = await fetch("https://smartloansbackend.azurewebsites.net/contact_email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
       });
-      */
+
+      if (!response.ok) {
+        throw new Error(`Error ${response.status}`);
+      }
+
+      const data = await response.json();
+      console.log("✅ Backend response:", data);
 
       setIsSubmitted(true);
       setFormData({ name: '', email: '', message: '' });
 
-      // Reset success message after 5 seconds
-      setTimeout(() => {
-        setIsSubmitted(false);
-      }, 5000);
-
+      setTimeout(() => setIsSubmitted(false), 5000);
     } catch (error) {
-      console.error('Error sending message:', error);
+      console.error("❌ Error sending message:", error);
+      alert("Hubo un error al enviar el formulario. Intenta de nuevo.");
     } finally {
       setIsSubmitting(false);
     }
@@ -59,8 +63,6 @@ const ContactForm = () => {
     <section id="contacto" className="py-16 bg-gradient-to-b from-metallic-gray-dark/10 to-technical-black">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
-
-          {/* Section Title */}
           <div className="text-center mb-12">
             <h2 className="section-title text-4xl lg:text-5xl font-bold mb-6">
               Contacto
@@ -70,7 +72,6 @@ const ContactForm = () => {
             </p>
           </div>
 
-          {/* Contact Form */}
           <div className="metallic-card p-8 lg:p-12">
             {isSubmitted ? (
               <div className="text-center py-8">
@@ -84,8 +85,6 @@ const ContactForm = () => {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
-
-                {/* Full Name */}
                 <div>
                   <label htmlFor="name" className="block text-steel-gray-light font-medium mb-2">
                     Nombre Completo *
@@ -102,7 +101,6 @@ const ContactForm = () => {
                   />
                 </div>
 
-                {/* Email */}
                 <div>
                   <label htmlFor="email" className="block text-steel-gray-light font-medium mb-2">
                     Correo Electrónico *
@@ -119,7 +117,6 @@ const ContactForm = () => {
                   />
                 </div>
 
-                {/* Message */}
                 <div>
                   <label htmlFor="message" className="block text-steel-gray-light font-medium mb-2">
                     Mensaje *
@@ -136,7 +133,6 @@ const ContactForm = () => {
                   />
                 </div>
 
-                {/* Submit Button */}
                 <div className="pt-4">
                   <button
                     type="submit"
@@ -157,11 +153,9 @@ const ContactForm = () => {
                   </button>
                 </div>
 
-                {/* Note */}
                 <p className="text-sm text-steel-gray-light/70 text-center">
                   * Campos requeridos. Tu información está segura y no será compartida.
                 </p>
-
               </form>
             )}
           </div>
