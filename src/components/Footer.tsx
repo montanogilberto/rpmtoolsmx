@@ -63,11 +63,11 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-3 text-steel-gray-light">
                 <Phone size={18} className="text-metallic-indigo flex-shrink-0" />
-                <span className="text-sm">+52 (55) 1234-5678</span>
+                <span className="text-sm">+52 6624505002</span>
               </div>
               <div className="flex items-center space-x-3 text-steel-gray-light">
                 <Mail size={18} className="text-metallic-indigo flex-shrink-0" />
-                <span className="text-sm">info@rpmtools.mx</span>
+                <span className="text-sm">Administracion@rpmtoolsmx.com</span>
               </div>
             </div>
 
